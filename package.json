@@ -1,4 +1,8 @@
 {
   "name": "cdev-cdn",
-  "packageManager": "yarn@3.2.4"
+  "packageManager": "yarn@3.2.4",
+  "dependencies": {
+    "hyper-express": "^6.5.2",
+    "undici": "^5.12.0"
+  }
 }
