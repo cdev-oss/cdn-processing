@@ -9,3 +9,6 @@ A Node.js server (powered by Express.js) to upload an image to our CDN, **Bunny.
 5. Rename `.env.example` to `.env`
 6. Replace the `.env` key with your own key, and also the server port as well.
 7. Then, run `yarn start`
+
+# LICENSE
+MIT
