@@ -91,7 +91,7 @@ app.post("/", async (req, res) => {
       return res.status(500).send("unable to post the content to centre");
     };
 
-    console.log(bunnyPost.status, await bunnyPost.json());
+    // console.log(bunnyPost.status, await bunnyPost.json());
     return res.status(200).send(`https://cdn.cdev.shop/discord/${req.body.guildID}/${randomFileName}`);
   } catch (error) {
     console.error(error);
