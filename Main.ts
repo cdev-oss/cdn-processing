@@ -28,11 +28,11 @@ app.post("/", async (req, res) => {
   try {
     // we use a simple authorization, whoever had the key will be able to post content to cdn
     if (process.env.npm_lifecycle_event !== "dev") { // ignore auth if dev mode
-      const authorization = res.getHeader("authorization");
       if (!auth?.parsed?.["AUTH"]) {
         return res.status(500).send("unable to retrieve private key from backend");
       };
   
+      const authorization = req.headers.authorization;
       if (!authorization || authorization !== auth.parsed["AUTH"]) {
         return res.status(403).send("unauthorized");
       };
