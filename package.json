@@ -1,6 +1,9 @@
 {
   "name": "cdev-cdn",
   "packageManager": "yarn@3.2.4",
+  "scripts": {
+    "start": "yarn ts-node ./Main.ts"
+  },
   "dependencies": {
     "dotenv": "^16.0.3",
     "hyper-express": "^6.5.2",
