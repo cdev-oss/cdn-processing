@@ -77,7 +77,7 @@ app.post("/", async (req, res) => {
     };
 
     const randomFileName = generateString(randomNumber(8, 16)) + "." + mimeType[content.headers["content-type"]];
-    const bunnyPost = await fetch(bunnyEndpoint + `/${req.body.guildID}` + `/${randomFileName}`, {
+    const bunnyPost = await fetch(bunnyEndpoint + `/discord/${req.body.guildID}` + `/${randomFileName}`, {
       method: 'PUT',
       body: processedContent,
       headers: {
