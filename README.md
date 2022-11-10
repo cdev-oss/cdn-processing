@@ -1,5 +1,5 @@
 # cdev-cdn
-A Node.js server (powered by Express and uWebsocket) to upload an image to our CDN, **Bunny.**
+A Node.js server (powered by Express.js) to upload an image to our CDN, **Bunny.**
 
 # Installation
 1. Clone the repository.
