@@ -55,7 +55,8 @@ app.post("/", async (req, res) => {
       "image/webp": "webp",
       "video/mp4": "mp4",
       "video/mpeg": "mpeg",
-      "video/webm": "webm"
+      "video/webm": "webm",
+      "image/gif": "gif"
     };
 
     // content processing
