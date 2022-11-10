@@ -21,7 +21,7 @@
   },
   "optionalDependencies": {
     "@types/validator": "^13.7.10",
-    "node-fetch": "^3.2.10",
+    "node-fetch": "2",
     "validator": "^13.7.0"
   }
 }
