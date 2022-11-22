@@ -39,7 +39,7 @@ app.post("/", async (req, res) => {
     };
 
     // because this server is specialized for discord bot, we use guild ID as a folder name
-    if (!req.body?.guildID?.match(/^(\d){15,21}$/gim)) {
+    if (!Boolean(req.headers["official"]) && !req.body?.guildID?.match(/^(\d){15,21}$/gim)) {
       return res.status(400).send("invalid discord guild id");
     };
 
@@ -78,7 +78,14 @@ app.post("/", async (req, res) => {
     };
 
     const randomFileName = generateString(randomNumber(8, 16)) + "." + mimeType[content.headers["content-type"]];
-    const bunnyPost = await fetch(bunnyEndpoint + `/discord/${req.body.guildID}` + `/${randomFileName}`, {
+    let filenamePath = `discord/${req.body.guildID}/${randomFileName}`;
+
+    // uploaded by cDev team
+    if (Boolean(req.headers["official"])) {
+      filenamePath = `official/${randomFileName}`;
+    };
+
+    const bunnyPost = await fetch(bunnyEndpoint + "/" + filenamePath, {
       method: 'PUT',
       body: processedContent,
       headers: {
@@ -93,7 +100,7 @@ app.post("/", async (req, res) => {
     };
 
     // console.log(bunnyPost.status, await bunnyPost.json());
-    return res.status(200).send(`https://cdn.cdev.shop/discord/${req.body.guildID}/${randomFileName}`);
+    return res.status(200).send(`https://cdn.cdev.shop/${filenamePath}`);
   } catch (error) {
     console.error(error);
     return res.status(500).send("something went wrong in the background");
