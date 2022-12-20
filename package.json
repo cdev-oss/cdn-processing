@@ -1,6 +1,6 @@
 {
   "name": "cdev-cdn",
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "yarn@3.3.1",
   "scripts": {
     "start": "yarn ts-node ./Main.ts",
     "dev": "yarn ts-node-dev --respawn --transpile-only ./Main.ts"
