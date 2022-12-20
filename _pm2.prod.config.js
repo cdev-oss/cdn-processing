@@ -1,7 +1,7 @@
 module.exports = {
   apps : [
     {
-      name: "api-media-base",
+      name: "cdn-manager",
       script: "yarn start"
     }
   ]
