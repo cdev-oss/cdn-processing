@@ -39,7 +39,7 @@ app.post("/", async (req, res) => {
     };
 
     // because this server is specialized for discord bot, we use guild ID as a folder name
-    if (!Boolean(req.headers["official"]) && !req.body?.guildID?.match(/^(\d){15,21}$/gim)) {
+    if (req.body?.guildID && !req.body.guildID?.match(/^(\d){17,21}$/gim)) {
       return res.status(400).send("invalid discord guild id");
     };
 
@@ -81,7 +81,7 @@ app.post("/", async (req, res) => {
     let filenamePath = `discord/${req.body.guildID}/${randomFileName}`;
 
     // uploaded by cDev team
-    if (Boolean(req.headers["official"])) {
+    if (!req.body.guildID) {
       filenamePath = `official/${randomFileName}`;
     };
 
